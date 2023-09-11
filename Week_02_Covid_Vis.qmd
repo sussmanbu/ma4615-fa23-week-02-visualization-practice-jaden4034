@@ -1,7 +1,7 @@
 ---
 title: "Week 02: COVID Visualization Activity"
 date: "September, 11 2023"
-author: "**`[[`**Your Name**`]]`**"
+author: "Jin Kyu (Jaden) Cho"
 ---
 
 Today, we'll be working with a data set related to COVID.
@@ -23,8 +23,9 @@ Try using the different data sets and see which ones are good for making which p
 ```{r first_plot}
 ggplot(covid_data_count, aes(x = date, y = Cases)) + geom_point()
 ```
-
-
+```{r}
+ggplot(covid_data_count, aes(x = date, y = Cases, color = race)) + geom_point()
+```
 
 If you want to only look at a specific state, you can do it like this.
 For now, see what you can do just using `ggplot`.
