@@ -26,7 +26,9 @@ ggplot(covid_data_count, aes(x = date, y = Cases)) + geom_point()
 ```{r}
 ggplot(covid_data_count, aes(x = date, y = Cases, color = race)) + geom_point()
 ```
-
+```{r}
+ggplot(covid_data_count, aes(x = date, y = Cases)) + geom_point() + geom_line(mapping = aes(x = date, y = Cases, color = race))
+```
 If you want to only look at a specific state, you can do it like this.
 For now, see what you can do just using `ggplot`.
 
