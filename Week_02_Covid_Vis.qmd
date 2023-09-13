@@ -23,22 +23,40 @@ Try using the different data sets and see which ones are good for making which p
 ```{r first_plot}
 ggplot(covid_data_count, aes(x = date, y = Cases)) + geom_point()
 ```
+```{r second_plot}
+ggplot(covid_data_long, aes(x = date, y = count)) + geom_point()
+```
+```{r third_plot}
+ggplot(covid_data_orig, aes(x = Date, y = Cases_Total)) + geom_point()
+```
+```{r fourth_plot}
+ggplot(covid_data_race, aes(x = date, y = Total_count)) + geom_point()
+```
 ```{r}
 ggplot(covid_data_count, aes(x = date, y = Cases, color = race)) + geom_point()
 ```
 ```{r}
-ggplot(covid_data_count, aes(x = date, y = Cases)) + geom_point() + geom_line(mapping = aes(x = date, y = Cases, color = race))
+ggplot(covid_data_count, aes(x = date, y = Cases)) + geom_line(mapping = aes(x = date, y = Cases, color = race)) + geom_smooth(aes(x = date, y = Cases, color = race))
 ```
+```{r}
+ggplot(covid_data_count, aes(x = date, y = Cases, color = race)) + geom_line() + geom_smooth()
+```
+
 If you want to only look at a specific state, you can do it like this.
 For now, see what you can do just using `ggplot`.
 
 ```{r}
 covid_data_count |> 
-  filter(state == "MA") |> 
-  ggplot(aes(x = date, y = Cases, color = race)) + geom_line()
+  filter(state == "MA") |> ggplot(aes(x = date, y = Cases, color = race)) + geom_line()
 ```
-
 1. Write code for a plot and describe what you observe?
+What I observed through using these plots, total number of people who had COVID is always on top of the line, and the slope of the line is steep for the total count. 
+
 2. Are there any conclusions you can draw?
+I can conclude that as the cold weather approaches, the COVID-19 infection rate rises dramatically. Date and cases do not have linear relationships, but they are increasing exponentailly. Lastly, in Massachusetts, the race White people have to highest infection rate in all weather.
+
 3. What were you not able to do due to not having the R knowledge?
+If I did not have R knowledge, I would have just looked at the csv file to draw a conclusion, but it would have cost me so much time. Lastly, I would not able to sort the specific data,draw plots, charts, and graphs, and find the relationship between variables to draw conclusion.
+
 4. What other data would be useful to better understand this data?
+It would be useful if we have data about age, gender, and socioeconomic status. Moreover, vaccination status would also useful to see the relationship between vaccination and COVID-19 disease.
